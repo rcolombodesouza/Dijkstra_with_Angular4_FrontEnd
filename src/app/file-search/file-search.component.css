@@ -1,0 +1,35 @@
+.jumbotron-search {
+	width: 640px;
+	text-align: center;	
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	vertical-align: top;
+	display: inline-block;
+	
+}
+.table {
+	margin-top: 20px;
+	text-align: center;
+	width: 620px;
+	margin: auto;	
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.title {
+	text-align: center;
+}
+
+.form-control{
+	width: 500px;
+	display: inline-block;
+}
+
+.divider {
+  height: 3px;
+  width:100%;
+  display:block; /* for use on default inline elements like span */
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}

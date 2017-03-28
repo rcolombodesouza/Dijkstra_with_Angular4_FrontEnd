@@ -1,0 +1,23 @@
+<div class="jumbotron-search">	
+		<input type="file" (change)="changeListener($event)" class="form-control">		
+		<button class="btn btn-primary" (click)="getAll()" >Search</button>
+</div>
+<hr class="divider">
+<div class="jumbotron-result">
+	<table class="table table-striped table-bordered">
+		<tr>
+			<!-- <th class="title">File</th>	-->
+			<th class="title">Source</th>
+			<th class="title">Target</th>
+			<th class="title">Cost</th>
+		</tr>
+		
+		<tr *ngFor="let result of getData">
+			<!-- <td>{{result.file}}</td> -->
+			<td>{{result.source}}</td>
+			<td>{{result.target}}</td>
+			<td>{{result.cost}}</td>
+		</tr>  		
+	</table>
+</div>
+
