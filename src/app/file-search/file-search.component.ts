@@ -1,3 +1,4 @@
+import { SearchResultComponent } from './../search-result/search-result.component';
 import { FileSearchService } from './file-search.service';
 import { Component} from '@angular/core';
 import { Observable } from 'rxjs';
@@ -30,11 +31,6 @@ export class FileSearchComponent  {
   
   
   getAll(){    
-     // this._fileSearchService.doGet().subscribe(
-      //data => this.editData(data),
-      //error => alert(error),
-      //() => console.log("Finished")
-    //);    
       this.show = true;
       this._fileSearchService.doPost(this.myReader.result).subscribe(
       data => this.editData(data),
