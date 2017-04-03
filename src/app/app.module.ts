@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { FileSearchComponent } from './file-search/file-search.component';
 import { FileSearchService } from './file-search/file-search.service';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { SearchFooterComponent } from './search-footer/search-footer.component';
+
 
 
 
@@ -14,7 +16,9 @@ import { SearchResultComponent } from './search-result/search-result.component';
   declarations: [
     AppComponent,
     FileSearchComponent,
-    SearchResultComponent    
+    SearchResultComponent,
+    SearchFooterComponent
+        
   ],
   imports: [
     BrowserModule,
