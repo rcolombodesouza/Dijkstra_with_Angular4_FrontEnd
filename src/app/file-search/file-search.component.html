@@ -1,8 +1,12 @@
-<div class="jumbotron-search">	
-		<input type="file" (change)="changeListener($event)" class="form-control">		
-		<button class="btn btn-primary" (click)="getAll()" >Search</button>
+<div *ngIf="errorMessage" class="alert alert-danger">
+	<h6><strong>Error - {{errorMessage}}</strong></h6> 
 </div>
-
+<form #formControl = "ngForm">
+	<div class="jumbotron-search">	
+		<input type="file" #inputFile (change)="changeListener($event)" required class="form-control">		
+		<button class="btn btn-primary" (click)="getAll()" [disabled]="!buttonEnabled">Search</button>
+	</div>
+</form>
 <hr class="divider">
 
 <app-search-result *ngIf="show" [getData]='getData'></app-search-result>

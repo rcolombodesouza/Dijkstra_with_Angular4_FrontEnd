@@ -13,6 +13,8 @@ export class FileSearchComponent  {
   getData: JSON;
   myReader:FileReader = new FileReader();
   show:boolean = false;
+  buttonEnabled:boolean = false;
+  errorMessage:string = "";
   
   constructor(private _fileSearchService: FileSearchService){}
   
@@ -21,23 +23,29 @@ export class FileSearchComponent  {
     this.readThis($event.target);
   }
 
+  
+
+  validateFileName(fileName: string){
+    if(fileName.substring(fileName.indexOf(".") + 1) === "csv"){
+      this.buttonEnabled = true;
+    } else {
+      this.buttonEnabled = false;
+    }
+  }
+
   readThis(inputValue: any) : void {
-    let file:File = inputValue.files[0]; 
-    
+    let file:File = inputValue.files[0];    
+    this.validateFileName(file.name); 
     this.myReader.readAsText(file);
   }
   
-  
-  
-  
   getAll(){    
-      this.show = true;
       this._fileSearchService.doPost(this.myReader.result).subscribe(
       data => this.editData(data),
-      error => alert(error),
-      () => console.log("Finished")
-    );  
-    
+      error => this.errorMessage = "BackEnd is not running. Details: " + error,
+      () => this.show = true
+    );
+             
   }
   
   editData(data){
