@@ -22,8 +22,7 @@ export class FileSearchComponent  {
   changeListener($event) : void {
     this.readThis($event.target);
   }
-
-  
+ 
 
   validateFileName(fileName: string){
     if(fileName.substring(fileName.indexOf(".") + 1) === "csv"){

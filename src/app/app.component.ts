@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  {
-  title = 'Find the best way to deliver a package!';
-
+  title = 'Delivery';
+  titleExp = ' Express';
+  
 
 }

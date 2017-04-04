@@ -16,6 +16,7 @@
 .form-control{
 	width: 500px;
 	display: inline-block;
+	vertical-align: middle;
 }
 
 .divider {
