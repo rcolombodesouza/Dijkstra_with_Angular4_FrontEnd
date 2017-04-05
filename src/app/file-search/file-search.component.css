@@ -8,7 +8,6 @@
 	display: inline-block;	
 }
 
-
 .title {
 	text-align: center;
 }
@@ -17,6 +16,7 @@
 	width: 500px;
 	display: inline-block;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
 .divider {
@@ -39,3 +39,30 @@
 	
 }
 
+hr.fancy-line{ 
+    border: 0; 
+    height: 3px;
+
+}
+hr.fancy-line:before {
+    top: -0.5em;
+    height: 2em;
+}
+hr.fancy-line:after {
+    content:'';
+    height: 1em;
+    top: 1px;
+}
+
+hr.fancy-line:before, hr.fancy-line:after {
+    content: '';    
+    width: 100%;
+}
+
+hr.fancy-line, hr.fancy-line:before {
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 75%);
+}
+
+body, hr.fancy-line:after {
+    background: #f4f4f4;
+}

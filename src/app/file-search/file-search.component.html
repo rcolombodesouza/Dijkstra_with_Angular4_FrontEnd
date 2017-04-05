@@ -3,10 +3,11 @@
 </div>
 <form #formControl = "ngForm">
 	<div class="jumbotron-search">	
-		<input type="file"  #inputFile title="Please choose a csv file format." (change)="changeListener($event)" required class="form-control">		
-		<button class="btn btn-primary" (click)="getAll()" [disabled]="!buttonEnabled">Search</button>
+		<input type="file"  #inputFile title="Please choose a csv file format." (change)="changeListener($event)" required class="form-control">
+		<button class="btn btn-primary" (click)="getAll()" title="Choose a file first." [disabled]="!buttonEnabled">Search</button>
 	</div>
 </form>
-<hr class="divider">
 
+<hr class="fancy-line">
+	
 <app-search-result *ngIf="show" [getData]='getData'></app-search-result>

@@ -14,7 +14,9 @@ export class FileSearchComponent  {
   myReader:FileReader = new FileReader();
   show:boolean = false;
   buttonEnabled:boolean = false;
-  errorMessage:string = "";
+  errorMessage:string = "";  
+  
+  
   
   constructor(private _fileSearchService: FileSearchService){}
   
@@ -50,5 +52,7 @@ export class FileSearchComponent  {
   editData(data){
     this.getData = data.result;
   }
+
+
   
 }
