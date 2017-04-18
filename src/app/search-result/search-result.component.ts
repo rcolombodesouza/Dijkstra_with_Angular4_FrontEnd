@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class SearchResultComponent {
   
-  @Input() getData: JSON;
-
+  @Input() _data: JSON;
+  
   constructor() { }
 
 

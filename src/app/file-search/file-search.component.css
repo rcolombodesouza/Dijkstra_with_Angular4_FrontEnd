@@ -1,11 +1,18 @@
-.jumbotron-search {
-	width: 640px;
-	text-align: center;	
+.jumbotron {
+	width: 700px;
+	text-align: center;
+	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
-	vertical-align: top;
-	display: inline-block;	
+	padding-top: 60px;
+	box-shadow: 1px 1px 1px 1px #888888;
+	border-style: solid;
+    border-width: 1px;
+	border-color: #888888;
+	border-radius: 10px;
+
+	
 }
 
 .title {
@@ -66,3 +73,4 @@ hr.fancy-line, hr.fancy-line:before {
 body, hr.fancy-line:after {
     background: #f4f4f4;
 }
+

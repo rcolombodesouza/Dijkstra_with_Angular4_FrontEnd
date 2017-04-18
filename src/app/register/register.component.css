@@ -1,0 +1,62 @@
+.jumbotron {
+	width: 700px;
+	text-align: center;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	padding-top: 60px;
+	box-shadow: 1px 1px 1px 1px #888888;
+	border-style: solid;
+    border-width: 1px;
+	border-color: #888888;
+	border-radius: 10px;
+    vertical-align: middle;
+	
+}
+
+.image{
+	text-align: center;	
+}
+
+h3 {
+	margin-top: 1px;
+	color: grey;
+}
+
+span{
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.noselect {
+  -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none; 
+			cursor:default;
+}
+
+.form-control{
+	width: 500px;
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+input{
+    background: no-repeat scroll 7px 7px;
+}
+
+input:focus{
+	background-color: white;
+}
+
+.alert{
+	width: 580px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}

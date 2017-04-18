@@ -1,7 +1,8 @@
 import { SearchResultComponent } from './../search-result/search-result.component';
-import { FileSearchService } from './file-search.service';
+import { FileSearchService } from './../_services/file-search.service';
 import { Component} from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router'; 
 
 
 @Component({
@@ -9,50 +10,56 @@ import { Observable } from 'rxjs';
   templateUrl: './file-search.component.html',
   styleUrls: ['./file-search.component.css']
 })
-export class FileSearchComponent  {
-  getData: JSON;
-  myReader:FileReader = new FileReader();
-  show:boolean = false;
-  buttonEnabled:boolean = false;
-  errorMessage:string = "";  
-  
-  
-  
-  constructor(private _fileSearchService: FileSearchService){}
-  
-  
-  changeListener($event) : void {
-    this.readThis($event.target);
-  }
- 
 
-  validateFileName(fileName: string){
+/**
+ * Component responsible for search the best way with Dijkstra
+ */
+export class FileSearchComponent  {
+  _data: JSON;
+  _myReader:FileReader = new FileReader();
+  _show:boolean = false;
+  _buttonEnabled:boolean = false;
+  _errorMessage:string = "";  
+  
+  
+  //Class constructor
+  constructor(private router: Router, 
+              private fileSearchService: FileSearchService){}
+
+
+  //Function responsible for validate the file extension
+  validateFileName(fileName: string){    
     if(fileName.substring(fileName.indexOf(".") + 1) === "csv"){
-      this.buttonEnabled = true;
+      this._buttonEnabled = true;
     } else {
-      this.buttonEnabled = false;
+      this._buttonEnabled = false;
     }
+    
+  }
+
+  //Returns the best path for all items inside the file imported.
+  //If data is returned, than calls a function to set the data.
+  //If an error is returned, than sends the error to the frontend.
+  search(){    
+    this.fileSearchService.doPost(this._myReader.result).subscribe(
+                                     data => {this.setData(data)},
+                                     error => {this._errorMessage = "BackEnd is not running. Details: " + error;},
+                                     () => this._show = true);
+  }
+  
+  //set the data received from the backend.
+  setData(data){    
+    this._data = data.result;
+  }
+
+
+  changeListener($event) : void {    
+    this.readThis($event.target);
   }
 
   readThis(inputValue: any) : void {
-    let file:File = inputValue.files[0];    
+    let file:File = inputValue.files[0];     
     this.validateFileName(file.name); 
-    this.myReader.readAsText(file);
+    this._myReader.readAsText(file);
   }
-  
-  getAll(){    
-      this._fileSearchService.doPost(this.myReader.result).subscribe(
-      data => this.editData(data),
-      error => this.errorMessage = "BackEnd is not running. Details: " + error,
-      () => this.show = true
-    );
-             
-  }
-  
-  editData(data){
-    this.getData = data.result;
-  }
-
-
-  
 }
