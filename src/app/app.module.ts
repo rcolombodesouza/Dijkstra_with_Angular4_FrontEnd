@@ -17,13 +17,14 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { FileSearchService } from './_services/file-search.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,    
     LoginComponent,
     RegisterComponent,
     FileSearchComponent,
-    SearchResultComponent      
+    SearchResultComponent          
   ],
   imports: [
     BrowserModule,

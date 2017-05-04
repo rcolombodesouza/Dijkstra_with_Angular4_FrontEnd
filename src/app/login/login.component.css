@@ -18,6 +18,11 @@
 	text-align: center;	
 }
 
+.label{
+	color: #666666;
+	font-size: 12px;
+}
+
 h3 {
 	margin-bottom: 30px;
 	color: grey;
@@ -42,20 +47,45 @@ span{
 	display: inline-block;
 	vertical-align: middle;
 	cursor: pointer;
+	
+}
+input {
+  border-radius: 3px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #DDD;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
 }
 
-
-
-.input-username{
-    background: url("../img/username.png") no-repeat scroll 7px 7px;
+.input-username{	    
+	background: url("../img/username.png") #cccccc no-repeat scroll 7px 7px;
     padding-left:35px;
+	color: white;
 }
 
-.input-password{
-    background: url("../img/password.png") no-repeat scroll 7px 7px;
+.input-password{	
+    background: url("../img/password.png") #cccccc no-repeat scroll 7px 7px;
     padding-left:35px;
+	color: white;
 }
 
 input:focus{
 	background-color: white;
+	color: black
 }
+
+
+.alert-danger{
+	width: 380px;	
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+.alert-danger:before{
+	display: table-cell;	
+	text-align: center;
+	vertical-align: middle;
+}
+

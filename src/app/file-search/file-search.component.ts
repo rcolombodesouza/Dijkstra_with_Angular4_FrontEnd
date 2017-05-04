@@ -1,9 +1,8 @@
+import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router'; 
 import { SearchResultComponent } from './../search-result/search-result.component';
 import { FileSearchService } from './../_services/file-search.service';
-import { Component} from '@angular/core';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router'; 
-
 
 @Component({
   selector: 'app-file-search',
@@ -20,15 +19,23 @@ export class FileSearchComponent  {
   _show:boolean = false;
   _buttonEnabled:boolean = false;
   _errorMessage:string = "";  
+  _title = 'DEXP';
+  _titleExp = ' - Delivery Express';
+  _username: string;
   
-  
+
   //Class constructor
-  constructor(private router: Router, 
-              private fileSearchService: FileSearchService){}
+  constructor(private router: ActivatedRoute, 
+              private fileSearchService: FileSearchService){
+    
+    //Receives the username from the previous component and sets the variable _username with it
+    this.router.queryParams.subscribe(params => {this._username = params["username"];});
+
+  }
 
 
   //Function responsible for validate the file extension
-  validateFileName(fileName: string){    
+  validateFileName(fileName: string){        
     if(fileName.substring(fileName.indexOf(".") + 1) === "csv"){
       this._buttonEnabled = true;
     } else {
@@ -41,6 +48,7 @@ export class FileSearchComponent  {
   //If data is returned, than calls a function to set the data.
   //If an error is returned, than sends the error to the frontend.
   search(){    
+
     this.fileSearchService.doPost(this._myReader.result).subscribe(
                                      data => {this.setData(data)},
                                      error => {this._errorMessage = "BackEnd is not running. Details: " + error;},

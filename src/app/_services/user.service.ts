@@ -1,30 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
-
+import * as AppUtils from './../_utils/app-utils';
 import { User } from '../_models/user';
 
 @Injectable()
 export class UserService {
+    url: string = '';
     constructor(private http: Http) { }
 
-    getAll() {
-        return this.http.get('http://localhost:8080/MailBackEnd/service/register', this.jwt()).map((response: Response) => response.json());
-    }
-
-    getById(id: number) {
-        return this.http.get('http://localhost:8080/MailBackEnd/service/register' + id, this.jwt()).map((response: Response) => response.json());
-    }
-
     create(user: User) {
-        return this.http.post('http://localhost:8080/MailBackEnd/service/register/create', JSON.stringify(user), this.jwt()).map((response: Response) => response.json());
+        this.url = AppUtils.BACKEND_API_ROOT_URL + AppUtils.BACKEND_API_REGISTER_SERVICE + AppUtils.BACKEND_API_CREATE_PATH;
+        return this.http.post(this.url, JSON.stringify(user), this.jwt()).map((response: Response) => response.json());
     }
 
     update(user: User) {
-        return this.http.put('http://localhost:8080/MailBackEnd/service/register' + user.id, user, this.jwt()).map((response: Response) => response.json());
+        this.url = AppUtils.BACKEND_API_ROOT_URL + AppUtils.BACKEND_API_REGISTER_SERVICE + AppUtils.BACKEND_API_CREATE_PATH;
+        return this.http.put(this.url + user.id, user, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(id: number) {
-        return this.http.delete('http://localhost:8080/MailBackEnd/service/register' + id, this.jwt()).map((response: Response) => response.json());
+        this.url = AppUtils.BACKEND_API_ROOT_URL + AppUtils.BACKEND_API_REGISTER_SERVICE;
+        return this.http.delete(this.url + id, this.jwt()).map((response: Response) => response.json());
     }
 
     // private helper methods

@@ -5,9 +5,10 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_guards/auth.guards';
 import { FileSearchComponent } from './file-search/file-search.component';
 
-const appRoutes: Routes = [    
-    { path: 'login', component: LoginComponent },
-    { path: 'search', component: FileSearchComponent },
+
+const appRoutes: Routes = [       
+    { path: 'login', component: LoginComponent,},
+    { path: 'search', component: FileSearchComponent, canActivate: [AuthGuard] },
     { path: 'register', component: RegisterComponent },
            
     // otherwise redirect to home

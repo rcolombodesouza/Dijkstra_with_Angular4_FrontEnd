@@ -19,6 +19,11 @@
 	text-align: center;	
 }
 
+.label{
+	color: #666666;
+	font-size: 12px;
+}
+
 h3 {
 	margin-top: 1px;
 	color: grey;
@@ -47,7 +52,14 @@ span{
 
 input{
     background: no-repeat scroll 7px 7px;
+	border-radius: 3px;
+  	border: 1px solid transparent;
+  	border-top: none;
+  	border-bottom: 1px solid #DDD;
+  	box-shadow: inset 0 1px 3px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+	background-color: #cccccc
 }
+
 
 input:focus{
 	background-color: white;
