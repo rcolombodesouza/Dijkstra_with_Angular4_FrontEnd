@@ -1,0 +1,37 @@
+<!-- System title -->
+<div class="noselect">
+    <h3 class="title">
+	    <strong>{{_title}}</strong><span>{{_titleExp}}</span>		
+    </h3>	
+</div>
+<div class="username"> 
+	Welcome {{_username}}
+</div>
+
+
+
+<!-- Error messages -->
+<div *ngIf="_errorMessage" class="alert alert-danger">
+	<h6><strong>Error - {{_errorMessage}}</strong></h6> 
+</div>
+
+<!-- Search file form -->
+<div class="jumbotron">
+	<form #formControl = "ngForm">
+		<div >	
+
+			<!--<label for="upload-file"></label>
+			<input type="file" name="file" id="upload-file" class="form-control "/>-->
+
+			<input type="file"  #inputFile title="Please choose a csv file format." (change)="changeListener($event)" required class="form-control">
+			<button class="btn btn-primary" (click)="search()" title="Choose a file first." [disabled]="!_buttonEnabled">Search</button>
+		</div>
+	</form>
+	<!-- Split the search form from the result component -->
+	<hr class="fancy-line">
+
+	<!-- Result component -->	
+	
+	<app-search-result *ngIf="_show" [_data]='_data'></app-search-result>
+</div>
+
