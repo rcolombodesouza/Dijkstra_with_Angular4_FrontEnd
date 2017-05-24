@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import { AlertService } from './../_services/alert.service';
 import { AuthenticationService } from './../_services/authentication.service';
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
