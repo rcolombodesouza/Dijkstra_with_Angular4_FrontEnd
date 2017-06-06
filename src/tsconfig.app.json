@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
+    "sourceMap": true,    
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -15,8 +15,13 @@
     "baseUrl": "",
     "types": []
   },
+
+"angularCompilerOptions": { "genDir": "../src/locale" },
+
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
   ]
+  
 }
+

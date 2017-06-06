@@ -1,6 +1,6 @@
 import { Component, OnInit,trigger, state, style, transition, animate } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { AlertService } from './../_services/alert.service';
 import { AuthenticationService } from './../_services/authentication.service';
 

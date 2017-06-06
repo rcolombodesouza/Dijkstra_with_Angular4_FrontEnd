@@ -18,20 +18,20 @@
         <div *ngIf="_message == 'NOK'" class="alert alert-danger" >
             <h6><strong>Error - Invalid username or password.</strong></h6> 
         </div>
-        {{_message}}
+        
         <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
             
             <!-- Username -->
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
                 <label class="label" for="username">Username</label>            
-                <input type="text" class="form-control input-username"  name="username" [(ngModel)]="_model.username" #username="ngModel" required autocomplete="off" /> 
+                <input type="text" [maxlength]="10" class="form-control input-username"  name="username" [(ngModel)]="_model.username" #username="ngModel" required autocomplete="off" /> 
                 <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
             </div>
 
             <!-- Password -->
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
                 <label class="label" for="password">Password</label>
-                <input type="password" class="form-control input-password" name="password" [(ngModel)]="_model.password" #password="ngModel" required />
+                <input type="password" [maxlength]="15" class="form-control input-password" name="password" [(ngModel)]="_model.password" #password="ngModel" required />
                 <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>        
             </div>
 

@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router'; 
 import { SearchResultComponent } from './../search-result/search-result.component';
 import { FileSearchService } from './../_services/file-search.service';

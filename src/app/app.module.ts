@@ -17,6 +17,8 @@ import { FileSearchService } from './_services/file-search.service';
 import { AlertService} from './_services/alert.service';
 import { AuthenticationService } from './_services/authentication.service';
 import { UserService } from './_services/user.service';
+import { InitCapsPipe } from './pipes/init.caps.pipe';
+
 
 @NgModule({
   declarations: [
@@ -24,12 +26,14 @@ import { UserService } from './_services/user.service';
     LoginComponent,
     RegisterComponent,
     FileSearchComponent,
-    SearchResultComponent          
+    SearchResultComponent
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    InitCapsPipe,
     routing
   ],
   providers: [AuthGuard, AlertService, AuthenticationService, UserService, FileSearchService],

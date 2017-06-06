@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import './../_utils/app-rxjs';
 import * as AppUtils from './../_utils/app-utils';
 
 @Injectable()
@@ -24,8 +23,9 @@ export class AuthenticationService {
   login(username: string, password: string) {
     this.url = AppUtils.BACKEND_API_ROOT_URL + AppUtils.BACKEND_API_REGISTER_SERVICE + AppUtils.BACKEND_API_VALIDATE_PATH;
     return this.http.post(this.url, JSON.stringify({ username: username, password: password }))
-           .map((response: Response) => this.checkLogin(response));
+           .map((response: Response) => this.checkLogin(response));           
     }
+  
 
   logout() {
     // remove user from local storage to log user out
